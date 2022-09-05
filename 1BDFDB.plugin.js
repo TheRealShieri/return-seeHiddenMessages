@@ -9,7 +9,7 @@
  * @patreon https://www.patreon.com/MircoWittrien
  * @website https://mwittrien.github.io/
  * @source https://github.com/mwittrien/BetterDiscordAddons/tree/master/Library/
- * @updateUrl https://mwittrien.github.io/BetterDiscordAddons/Library/1BDFDB.plugin.js
+ * @updateUrl https://raw.githubusercontent.com/JustOptimize/return-seeHiddenMessages/main/1BDFDB.plugin.js
  */
 
 module.exports = (_ => {
@@ -1116,7 +1116,7 @@ module.exports = (_ => {
 				return libHashes[fileName] && oldLibHashes[fileName] && libHashes[fileName] == oldLibHashes[fileName] && fs.existsSync(path) && (fs.readFileSync(path) || "").toString();
 			};
 			const requestLibraryHashes = tryAgain => {
-				request("https://api.github.com/repos/mwittrien/BetterDiscordAddons/contents/Library/_res/", {headers: {"user-agent": "node.js"}}, (e, r, b) => {
+				request("https://api.github.com/repos/JustOptimize/return-seeHiddenMessages/contents/_res/", {headers: {"user-agent": "node.js"}}, (e, r, b) => {
 					if ((e || !b || r.statusCode != 200) && tryAgain) return C_BDFDB.TimeUtils.timeout(_ => requestLibraryHashes(), 10000);
 					try {
 						b = JSON.parse(b);
@@ -1134,7 +1134,7 @@ module.exports = (_ => {
 				
 					const backupData = getBackup(dataFileName, dataFilePath);
 					if (backupData) parseData(backupData);
-					else request.get(`https://mwittrien.github.io/BetterDiscordAddons/Library/_res/${dataFileName}`, (e, r, b) => {
+					else request.get(`https://raw.githubusercontent.com/JustOptimize/return-seeHiddenMessages/main/_res/${dataFileName}`, (e, r, b) => {
 						if ((e || !b || r.statusCode != 200) && tryAgain) return C_BDFDB.TimeUtils.timeout(_ => requestLibraryData(), 10000);
 						if (!e && b && r.statusCode == 200) parseData(b, true);
 						else parseData(fs.existsSync(dataFilePath) && (fs.readFileSync(dataFilePath) || "").toString());
@@ -1171,7 +1171,7 @@ module.exports = (_ => {
 				
 				const backupCSS = getBackup(cssFileName, cssFilePath);
 				if (backupCSS) parseCSS(backupCSS);
-				else request.get(`https://mwittrien.github.io/BetterDiscordAddons/Library/_res/${cssFileName}`, (e, r, b) => {
+				else request.get(`https://raw.githubusercontent.com/JustOptimize/return-seeHiddenMessages/main/_res/${cssFileName}`, (e, r, b) => {
 					if ((e || !b || r.statusCode != 200) && tryAgain) return C_BDFDB.TimeUtils.timeout(_ => requestLibraryData(), 10000);
 					if (!e && b && r.statusCode == 200) {
 						fs.writeFile(cssFilePath, b, _ => {});
