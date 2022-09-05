@@ -2,13 +2,10 @@
  * @name C_BDFDB
  * @author DevilBro
  * @authorId 278543574059057154
- * @version 9.9.9
+ * @version 2.5.8
  * @description Required Library for DevilBro's Plugins
  * @invite Jx3TjNS
- * @donate https://www.paypal.me/MircoWittrien
- * @patreon https://www.patreon.com/MircoWittrien
- * @website https://mwittrien.github.io/
- * @source https://github.com/mwittrien/BetterDiscordAddons/tree/master/Library/
+ * @source https://raw.githubusercontent.com/JustOptimize/return-seeHiddenMessages/main/
  * @updateUrl https://raw.githubusercontent.com/JustOptimize/return-seeHiddenMessages/main/1BDFDB.plugin.js
  */
 
@@ -1188,7 +1185,7 @@ module.exports = (_ => {
 						else if (plugin.updateUrl) return plugin.updateUrl;
 						else {
 							let name = InternalData.PluginNameMap && InternalData.PluginNameMap[plugin.name] || plugin.name;
-							return `https://mwittrien.github.io/BetterDiscordAddons/Plugins/${name}/${name}.plugin.js`;
+							return `https://raw.githubusercontent.com/JustOptimize/return-seeHiddenMessages/main/${name}/${name}.plugin.js`;
 						}
 					}
 					else return "";
